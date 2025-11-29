@@ -10,3 +10,6 @@ sqlalchemy
 pymysql
 firebase-admin
 reportlab
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
