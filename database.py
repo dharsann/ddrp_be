@@ -11,7 +11,7 @@ firebase_json = os.getenv("FIREBASE_CREDENTIALS")
 
 if not firebase_admin._apps:
     if firebase_json:
-        cred_dict = json.loads(firebase_json)
+        cred_dict = json.loads(firebase_json.replace('\\n', '\n'))
         cred = credentials.Certificate(cred_dict)
     else:
         raise Exception("FIREBASE_CREDENTIALS env variable missing")
