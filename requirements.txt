@@ -8,4 +8,5 @@ passlib[bcrypt]
 pydantic
 sqlalchemy
 pymysql
+firebase-admin
 reportlab
