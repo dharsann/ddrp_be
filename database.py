@@ -14,7 +14,7 @@ if not firebase_admin._apps:
         cred_dict = json.loads(firebase_json)
         cred = credentials.Certificate(cred_dict)
     else:
-        raise Exception("FIREBASE_CREDENTIALS_JSON env variable missing")
+        raise Exception("FIREBASE_CREDENTIALS env variable missing")
 
     firebase_admin.initialize_app(cred)
 
