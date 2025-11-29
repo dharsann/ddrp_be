@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Read JSON from environment variable
-firebase_json = os.getenv("FIREBASE_CREDENTIALS_JSON")
+firebase_json = os.getenv("FIREBASE_CREDENTIALS")
 
 if not firebase_admin._apps:
     if firebase_json:
