@@ -1,16 +1,23 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
 import os
+import json
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# Initialize Firebase
-cred_path = os.getenv("FIREBASE_CREDENTIALS_PATH", "firebase_credentials.json")
-cred = credentials.Certificate(cred_path)
-firebase_admin.initialize_app(cred)
+# Read JSON from environment variable
+firebase_json = os.getenv("FIREBASE_CREDENTIALS_JSON")
 
-# Firestore client
+if not firebase_admin._apps:
+    if firebase_json:
+        cred_dict = json.loads(firebase_json)
+        cred = credentials.Certificate(cred_dict)
+    else:
+        raise Exception("FIREBASE_CREDENTIALS_JSON env variable missing")
+
+    firebase_admin.initialize_app(cred)
+
 db = firestore.client()
 
 def get_db():
