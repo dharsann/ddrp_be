@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+gunicorn
+python-dotenv
+python-jose
+apscheduler
+passlib[bcrypt]
+pydantic
+sqlalchemy
+pymysql
+reportlab
